@@ -4,7 +4,7 @@ FROM r-base
 RUN apt-get update && apt-get install -y libxml2 libxml2-dev libcurl4-gnutls-dev r-cran-rgl git
 
 # Add dpclust(3p) dependencies
-RUN R -q -e 'source("http://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation","mcclust","KernSmooth","ks","lattice","ggplot2","gridExtra","reshape2"))'
+RUN R -q -e 'source("http://bioconductor.org/biocLite.R"); biocLite(c("VariantAnnotation","GenomicRanges,"Rsamtools","ggplot2","reshape2","VGAM"))'
 
 # Preprocessing
 git clone https://github.com/Wedge-Oxford/dpclust_smchet_docker
@@ -17,3 +17,6 @@ ADD randomclone /opt/galaxy/tools/dpclust/randomclone
 git clone https://github.com/sdentro/smchet_utils
 ADD smchet_utils /opt/galaxy/tools/dpclust/smchet_utils
 ADD randomclone_single.sh /opt/galaxy/tools/dpclust/randomclone_single.sh
+
+# get mutation timer for the informed method
+git clone https://github.com/sdentro/MutationTime.R
