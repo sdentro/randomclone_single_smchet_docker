@@ -11,12 +11,14 @@ git clone https://github.com/Wedge-Oxford/dpclust_smchet_docker
 ADD dpclust_smchet_docker/dpclust3p_v1.0.6.tar.gz /opt/galaxy/tools/dpclust3p_v1.0.6.tar.gz 
 RUN R -q -e 'install.packages("/opt/galaxy/tools/dpclust3p_v1.0.6.tar.gz", type="source", repos=NULL)'
 
-# RC single pipeline
+# RC  pipeline
 git clone https://github.com/sdentro/randomclone
 ADD randomclone /opt/galaxy/tools/dpclust/randomclone
 git clone https://github.com/sdentro/smchet_utils
 ADD smchet_utils /opt/galaxy/tools/dpclust/smchet_utils
 ADD randomclone_single.sh /opt/galaxy/tools/dpclust/randomclone_single.sh
+ADD randomclone_informed.sh /opt/galaxy/tools/dpclust/randomclone_informed.sh
 
 # get mutation timer for the informed method
 git clone https://github.com/sdentro/MutationTime.R
+ADD MutationTime.R /opt/galaxy/tools/dpclust/MutationTime.R
