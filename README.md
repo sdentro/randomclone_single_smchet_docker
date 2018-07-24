@@ -11,7 +11,7 @@ docker build -t randomclone:0.1.0 .
 
 Run the pipeline from the commandline as follows (assuming a local directory named sample which contains the SMC-het available files for the sample to run)
 ```
-docker run  -v `pwd`/sample:/opt/sample randomclone:0.1.0 bash -c "cd /opt/T4 && /opt/galaxy/tools/dpclust/randomclone_informed.sh sample.mutect.vcf 1 sample.battenberg.txt sample.cellularity_ploidy.txt male 1"
+docker run  -v `pwd`/sample:/opt/sample randomclone:0.1.0 bash -c "cd /opt/sample&& /opt/galaxy/tools/dpclust/randomclone_informed.sh sample.mutect.vcf 1 sample.battenberg.txt sample.cellularity_ploidy.txt male 1"
 ```
 
 ## Output
@@ -27,11 +27,11 @@ subchallenge2B.txt
 
 **Randomclone output**
 ```
-tumour\_mutation\_assignments\_probabilities.txt
-tumour\_mutation\_assignments.txt
-tumour\_randomclone\_informed\_models.RData
-tumour\_randomclone\_informed\_selected\_solution.RData
-tumour\_subclonal\_structure.txt
+tumour_mutation_assignments_probabilities.txt
+tumour_mutation_assignments.txt
+tumour_randomclone_informed_models.RData
+tumour_randomclone_informed_selected_solution.RData
+tumour_subclonal_structure.txt
 ```
 
 **Intermediate and temporary files**
@@ -39,7 +39,7 @@ tumour\_subclonal\_structure.txt
 allDirichletProcessInfo.txt
 alleleCounts.txt
 loci.txt
-temp\_copynumber.txt
-temp\_rho\_psi.txt
-temp\_snvs.vcf
+temp_copynumber.txt
+temp_rho_psi.txt
+temp_snvs.vcf
 ```
