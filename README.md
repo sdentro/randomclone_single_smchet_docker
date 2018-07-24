@@ -1,1 +1,45 @@
 Pipeline for RandomClone methods that generate random subclonal reconstructions for SMC-het
+
+## Building the image
+
+Build the image as follows
+```
+docker build -t randomclone:0.1.0 .
+```
+
+## Running the pipeline
+
+Run the pipeline from the commandline as follows (assuming a local directory named sample which contains the SMC-het available files for the sample to run)
+```
+docker run  -v `pwd`/sample:/opt/sample randomclone:0.1.0 bash -c "cd /opt/T4 && /opt/galaxy/tools/dpclust/randomclone_informed.sh sample.mutect.vcf 1 sample.battenberg.txt sample.cellularity_ploidy.txt male 1"
+```
+
+## Output
+
+**SMC-het specific files**
+```
+subchallenge1A.txt
+subchallenge1B.txt
+subchallenge1C.txt
+subchallenge2A.txt
+subchallenge2B.txt
+```
+
+**Randomclone output**
+```
+tumour\_mutation\_assignments\_probabilities.txt
+tumour\_mutation\_assignments.txt
+tumour\_randomclone\_informed\_models.RData
+tumour\_randomclone\_informed\_selected\_solution.RData
+tumour\_subclonal\_structure.txt
+```
+
+**Intermediate and temporary files**
+```
+allDirichletProcessInfo.txt
+alleleCounts.txt
+loci.txt
+temp\_copynumber.txt
+temp\_rho\_psi.txt
+temp\_snvs.vcf
+```
